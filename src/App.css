@@ -1,38 +1,64 @@
-.App {
+
+.st2 {
+  margin-top: 30px;
+}
+img {
+  width: 20px;
+  height: 20px;
+}
+.app {
+  width: 1140px;
+}
+table, th, td {
+  border-collapse: collapse;
+  border: 2px solid rgb(89, 0, 255);
+  padding: 15px;
+}
+/* table {
+  border: 1px solid blue;
+  padding: 5px;
+} */
+form span{
+  font-weight: 600;
+}
+img{
+  cursor: pointer;
   text-align: center;
+  margin-left: 80px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  border: none;
+  width: 80% important!;
+  margin: 30px;
+  margin-left: 10%;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.step1 label{
+  padding-left: 30px;
+  padding-right: 10px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.step2 label{
+  text-align: center;
+  padding: 10px;
 }
-
-.App-link {
-  color: #61dafb;
+.table3{
+  position: absolute;
+  top: 120px;
+  left: 600px;
+  width: 600px !important;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.step3 label{
+  padding-right: 23px !important;
+}
+.right{
+  padding-top: 10px;
+  padding-bottom: 50px;
+}
+.table4{
+  position: absolute;
+  top: 120px;
+  left: 600px;
+}
+.btn{
+  padding-top: 30px;
+  margin-left: 50px;
 }
