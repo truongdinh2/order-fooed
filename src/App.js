@@ -1,9 +1,9 @@
 import './App.css';
 
-import Stepper from "./components/Stepper"
+import Stepper from "./components/Stepper";
 // import {data} from './data/data';
 
-function App(props) {
+function App() {
   return (
     <div className="app">
       <Stepper/>

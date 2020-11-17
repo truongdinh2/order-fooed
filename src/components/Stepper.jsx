@@ -11,34 +11,32 @@ import Step3 from './Step3';
 import Step4 from './Step4';
 import { useState } from 'react';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-  },
-  button: {
-    marginRight: theme.spacing(1),
-  },
-  instructions: {
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
-  },
-}));
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     width: '100%',
+//   },
+//   button: {
+//     marginRight: theme.spacing(1),
+//   },
+//   instructions: {
+//     marginTop: theme.spacing(1),
+//     marginBottom: theme.spacing(1),
+//   },
+// }));
 
 function getSteps() {
   return ['Select campaign settings', 'Create an ad group', 'Create an ad', 'step4'];
 }
 
-
-
-
-export default function HorizontalLinearStepper() {
+const HorizontalLinearStepper = () => {
   const [mainMeal, setmainMeal] = useState('');
   const [order, setOrder] = useState('');
-  const classes = useStyles();
   const [restaurant, setRestaurant] = useState('');
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
   const steps = getSteps();
+  // const classes = useStyles();
+
 
   const isStepOptional = (step) => {
     return step === 1;
@@ -88,21 +86,21 @@ export default function HorizontalLinearStepper() {
     setActiveStep(0);
   };
 
-  function getOrder(data) {
+  const getOrder = (data) => {
     // console.log(data)
     setOrder(data)
   }
-  function getRes(data) {
+  const getRes = (data) => {
     // console.log(data)
     setRestaurant(data)
   }
-  function getData3(arrData) {
+  const getData3 = (arrData) => {
     // console.log(arrData)
     setmainMeal(arrData);
 
   }
   // console.log(mainMeal)
-  function getStepContent(step) {
+  const getStepContent = (step) => {
     switch (step) {
       case 0:
         return <Step1 getOrder={getOrder} />;
@@ -118,7 +116,7 @@ export default function HorizontalLinearStepper() {
         return 'Unknown step';
     }
   }
-  function validate(activeStep) {
+  const validate = (activeStep) => {
     console.log(activeStep);
     if (activeStep === 0) {
       console.log(order)
@@ -142,7 +140,7 @@ export default function HorizontalLinearStepper() {
   }
 
   return (
-    <div className={classes.root}>
+    <div>
       <Stepper activeStep={activeStep}>
         {steps.map((label, index) => {
           const stepProps = {};
@@ -163,18 +161,18 @@ export default function HorizontalLinearStepper() {
       <div>
         {activeStep === steps.length ? (
           <div>
-            <Typography className={classes.instructions}>
+            <Typography >
               All steps completed - you&apos;re finished
             </Typography>
-            <Button onClick={handleReset} className={classes.button}>
+            <Button onClick={handleReset} >
               Reset
             </Button>
           </div>
         ) : (
             <div>
-              <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+              <Typography >{getStepContent(activeStep)}</Typography>
               <div className="btn">
-                <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
+                <Button disabled={activeStep === 0} onClick={handleBack} >
                   Back
               </Button>
                 {/* {isStepOptional(activeStep) && (
@@ -182,7 +180,7 @@ export default function HorizontalLinearStepper() {
                   variant="contained"
                   color="primary"
                   onClick={handleSkip}
-                  className={classes.button}
+                  
                 >
                   Skip
                 </Button>
@@ -192,7 +190,7 @@ export default function HorizontalLinearStepper() {
                   variant="contained"
                   color="primary"
                   onClick={handleNext}
-                  className={classes.button}
+                  
                 >
                   {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
                 </Button>
@@ -203,3 +201,5 @@ export default function HorizontalLinearStepper() {
     </div>
   );
 }
+
+export default HorizontalLinearStepper;
