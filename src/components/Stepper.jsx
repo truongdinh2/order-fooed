@@ -9,48 +9,45 @@ import Step1 from './Step1';
 import Step2 from './Step2';
 import Step3 from './Step3';
 import Step4 from './Step4';
+
 import { useState } from 'react';
 
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     width: '100%',
-//   },
-//   button: {
-//     marginRight: theme.spacing(1),
-//   },
-//   instructions: {
-//     marginTop: theme.spacing(1),
-//     marginBottom: theme.spacing(1),
-//   },
-// }));
-
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+  },
+  button: {
+    marginRight: theme.spacing(1),
+  },
+  instructions: {
+    marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(1),
+  },
+}));
 function getSteps() {
-  return ['Select campaign settings', 'Create an ad group', 'Create an ad', 'step4'];
+  return ['step 1', 'step 2', 'step 3', 'step 4'];
 }
-
-const HorizontalLinearStepper = () => {
+export default function HorizontalLinearStepper() {
   const [mainMeal, setmainMeal] = useState('');
   const [order, setOrder] = useState('');
+  const classes = useStyles();
   const [restaurant, setRestaurant] = useState('');
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
   const steps = getSteps();
-  // const classes = useStyles();
-
 
   const isStepOptional = (step) => {
     return step === 1;
   };
-
   const isStepSkipped = (step) => {
     return skipped.has(step);
   };
-
+var isValidate = false;
   const handleNext = () => {
     if (validate(activeStep) === true) {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
-      
-    }
+    } 
+    
 
 
     // let newSkipped = skipped;
@@ -86,24 +83,26 @@ const HorizontalLinearStepper = () => {
     setActiveStep(0);
   };
 
-  const getOrder = (data) => {
+  function getOrder(data) {
     // console.log(data)
     setOrder(data)
   }
-  const getRes = (data) => {
+  function getRes(data) {
     // console.log(data)
     setRestaurant(data)
   }
-  const getData3 = (arrData) => {
+  function getData3(arrData) {
     // console.log(arrData)
     setmainMeal(arrData);
 
   }
   // console.log(mainMeal)
-  const getStepContent = (step) => {
+  function getStepContent(step) {
     switch (step) {
       case 0:
-        return <Step1 getOrder={getOrder} />;
+        return (
+        <Step1 getOrder={getOrder} ></Step1>     
+        );
       case 1:
         return <Step2 order={order} getRes={getRes} />;
       case 2:
@@ -116,37 +115,46 @@ const HorizontalLinearStepper = () => {
         return 'Unknown step';
     }
   }
-  const validate = (activeStep) => {
-    console.log(activeStep);
+  
+  // console.log(isValidate);
+  function validate(activeStep) {
+    // console.log(activeStep);
+    console.log(order)
     if (activeStep === 0) {
-      console.log(order)
-      if(!order.meal || !order.num ) {
-        alert("please fill all form")
+      // console.log(order)
+      if(order.meal === '' || order.num === '' ) {
+        //  isValidate = true;
+      alert('please fill this form')
+      // console.log(false)
         return false
       }
       // console.log('hi');
     }
     if (activeStep === 1) {
       if (!restaurant) {
-        alert("please fill all form")
+        // isValidate = true;
+        alert('please fill this form')
+        return false;
       }
     }
     if (activeStep === 2) {
-      if (!mainMeal) {
+      if (!mainMeal.orderFood.length > 0) {
         alert("pleasee fill all form")
+        // isValidate = true;
+        return false;
       }
     }
-    return true
+    return true;
   }
 
   return (
-    <div>
+    <div className={classes.root}>
       <Stepper activeStep={activeStep}>
         {steps.map((label, index) => {
           const stepProps = {};
           const labelProps = {};
           if (isStepOptional(index)) {
-            labelProps.optional = <Typography variant="caption">Optional</Typography>;
+            // labelProps.optional = <Typography variant="caption">Optional</Typography>;
           }
           if (isStepSkipped(index)) {
             stepProps.completed = false;
@@ -161,18 +169,18 @@ const HorizontalLinearStepper = () => {
       <div>
         {activeStep === steps.length ? (
           <div>
-            <Typography >
+            <Typography className={classes.instructions}>
               All steps completed - you&apos;re finished
             </Typography>
-            <Button onClick={handleReset} >
+            <Button onClick={handleReset} className={classes.button}>
               Reset
             </Button>
           </div>
         ) : (
             <div>
-              <Typography >{getStepContent(activeStep)}</Typography>
+              <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
               <div className="btn">
-                <Button disabled={activeStep === 0} onClick={handleBack} >
+                <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
                   Back
               </Button>
                 {/* {isStepOptional(activeStep) && (
@@ -180,7 +188,7 @@ const HorizontalLinearStepper = () => {
                   variant="contained"
                   color="primary"
                   onClick={handleSkip}
-                  
+                  className={classes.button}
                 >
                   Skip
                 </Button>
@@ -190,7 +198,7 @@ const HorizontalLinearStepper = () => {
                   variant="contained"
                   color="primary"
                   onClick={handleNext}
-                  
+                  className={classes.button}
                 >
                   {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
                 </Button>
@@ -201,5 +209,3 @@ const HorizontalLinearStepper = () => {
     </div>
   );
 }
-
-export default HorizontalLinearStepper;
