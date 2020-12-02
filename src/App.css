@@ -1,90 +1,117 @@
-
 .st2 {
-  margin-top: 30px;
+    margin-top: 30px;
 }
+
 img {
-  width: 20px;
-  height: 20px;
+    width: 20px;
+    height: 20px;
 }
+
 .app {
-  width: 1140px;
+    width: 1140px;
 }
-table, th, td {
-  border-collapse: collapse;
-  border: 2px solid rgb(89, 0, 255);
-  padding: 15px;
+
+table,
+th,
+td {
+    border-collapse: collapse;
+    border: 2px solid rgb(89, 0, 255);
+    padding: 15px;
 }
+
+
 /* table {
   border: 1px solid blue;
   padding: 5px;
 } */
-form span{
-  font-weight: 600;
+
+form span {
+    font-weight: 600;
 }
-img{
-  cursor: pointer;
-  text-align: center;
-  margin-left: 80px;
+
+img {
+    cursor: pointer;
+    text-align: center;
+    margin-left: 80px;
 }
+
 body {
-  border: none;
-  width: 80% important!;
-  margin: 30px;
-  margin-left: 10%;
+    border: none;
+    width: 80% important!;
+    margin: 30px;
+    margin-left: 10%;
 }
-.step1 label{
-  padding-left: 30px;
-  padding-right: 10px;
+
+.step1 label {
+    padding-left: 30px;
+    padding-right: 10px;
 }
-.step2 label{
-  text-align: center;
-  padding: 10px;
+
+.step2 label {
+    text-align: center;
+    padding: 10px;
 }
-.table3{
-  position: absolute;
-  top: 120px;
-  left: 600px;
-  width: 600px !important;
+
+.table3 {
+    position: absolute;
+    top: 120px;
+    left: 600px;
+    width: 600px !important;
 }
-.step3 label{
-  padding-right: 23px !important;
+
+.step3 label {
+    padding-right: 23px !important;
 }
-.right{
-  padding-top: 10px;
-  padding-bottom: 50px;
+
+.right {
+    padding-top: 10px;
+    padding-bottom: 50px;
 }
-.table4{
-  position: absolute;
-  top: 120px;
-  left: 600px;
+
+.table4 {
+    position: absolute;
+    top: 120px;
+    left: 600px;
 }
-.btn{
-  padding-top: 30px;
-  margin-left: 50px;
+
+.btn {
+    padding-top: 30px;
+    margin-left: 50px;
 }
-.select{
-  width: 100%;
-  padding: 5px !important;
-  min-width: 15ch;
-  max-width: 30ch;
-  border: 1px solid var(--select-border);
-  border-radius: 0.25em;
-  padding: 0.25em 0.5em;
-  font-size: 1rem;
-  cursor: pointer;
-  line-height: 1.1;
-  background-color: #fff;
-  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+
+.select {
+    width: 100%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    width: 100%;
+    /* padding: 5px !important; */
+    margin-left: -12px;
+    min-width: 15ch;
+    max-width: 30ch;
+    padding: 16px 20px;
+    /* border: 1px solid var(--select-border); */
+    /* border-radius: 0.25em; */
+    /* padding: 0.25em 0.5em; */
+    font-size: 1rem;
+    cursor: pointer;
+    line-height: 1.1;
+    /* background-color: wheat; */
+    /* background-image: linear-gradient(to top, #f9f9f9, #fff 33%); */
 }
+
 .select::-ms-expand {
-  display: none;
+    display: none;
 }
-.opt{
-  color: gray;
-  height: 20px;
-  background-color: yellow;
+
+.opt {
+    color: gray;
+    height: 20px;
+    background-color: yellow;
 }
-select option{
-  padding: 10px !important;
-  height: 20px;
+
+select option {
+    padding: 10px !important;
+    height: 20px;
 }

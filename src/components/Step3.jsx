@@ -51,7 +51,7 @@ function Step3(props) {
                     dataEnter,
                 ]
             })
-            setDataEnter({ numberMeal: '', name: '' })
+            // setDataEnter({ numberMeal: '', name: '' })
         }
         if (dataEnter.name === '') {
             setIsdataEnter(true)
@@ -60,7 +60,7 @@ function Step3(props) {
             setIsdataEnter1(true)
         }
         setDataEnter({
-            name: '',
+            ...dataEnter,
             numberMeal: 0
         })
         // console.log(arrData)
