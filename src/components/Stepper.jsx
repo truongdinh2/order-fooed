@@ -119,7 +119,7 @@ var isValidate = false;
   // console.log(isValidate);
   function validate(activeStep) {
     // console.log(activeStep);
-    console.log(order)
+    // console.log(order)
     if (activeStep === 0) {
       // console.log(order)
       if(order.meal === '' || order.num === '' ) {

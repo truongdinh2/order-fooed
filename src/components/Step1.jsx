@@ -18,7 +18,7 @@ function Step1(props) {
             setIsValidate(false)
         }
         if(order.num) {
-            console.log(isValidate1)
+            // console.log(isValidate1)
             setIsValidate1(false)
         }
     }, [order])

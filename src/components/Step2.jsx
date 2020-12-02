@@ -36,8 +36,8 @@ function Step2(props) {
     if(!restaurants) {
         isValidate = true
         }
-        console.log(isValidate)
-        console.log(restaurants)
+        // console.log(isValidate)
+        // console.log(restaurants)
     function handleChange(event) {
         var res = restaurants;
         res = event.target.value;
